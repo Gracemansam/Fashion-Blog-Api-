@@ -44,6 +44,7 @@ public class LikeImplementation implements LikeService {
             like.setLiked(likeDto.isLiked());
             like.setUser(user);
             like.setPost(post);
+
             likeRepository.save(like);
             List<Like> likeList = likeRepository.likeList(post_id);
             likeResponse = new LikeResponse("success", LocalDateTime.now(), like, likeList.size());

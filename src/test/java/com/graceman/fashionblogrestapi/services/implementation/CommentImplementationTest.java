@@ -153,9 +153,7 @@ class CommentImplementationTest {
         verify(postService).findPostById(anyInt());
     }
 
-    /**
-     * Method under test: {@link CommentImplementation#searchComment(String)}
-     */
+
     @Test
     void testSearchComment() {
         when(commentRepository.findByCommentContaining((String) any())).thenReturn(new ArrayList<>());
