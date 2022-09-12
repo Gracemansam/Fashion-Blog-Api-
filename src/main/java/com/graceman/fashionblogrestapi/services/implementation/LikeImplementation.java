@@ -50,6 +50,7 @@ public class LikeImplementation implements LikeService {
             likeResponse = new LikeResponse("success", LocalDateTime.now(), like, likeList.size());
         } else {
             likeRepository.delete(duplicateLike);
+           // likeResponse = new LikeResponse("", LocalDateTime.now(), like, likeList.size());
             throw new PostAlreadyLikedException("This post has been liked, It is now Unliked :(");
         }
          return likeResponse;
