@@ -30,15 +30,14 @@ public class UserController {
 
     @PostMapping (value = "/register",
             consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<RegisterResponse> register(@RequestBody UserRegisterDto userDto) {
-        RegisterResponse registerResponse = userService.register(userDto);
-        return new ResponseEntity<>(registerResponse,CREATED);
+    public ResponseEntity<ApiResponse> register(@RequestBody UserRegisterDto userDto) {
+
+        return userService.register(userDto);
     }
 
-    @PostMapping(value = "/login")
-    //consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<LoginResponse> login(@RequestBody UserLoginDto loginDto){
-        LoginResponse loginResponse =userService.login(loginDto);
-        return new ResponseEntity<>(loginResponse,ACCEPTED);
-    }
+//    @PostMapping(value = "/login")
+//    //consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<ApiResponse> login(@RequestBody UserLoginDto loginDto){
+//        return userService.login(loginDto);
+//    }
 }

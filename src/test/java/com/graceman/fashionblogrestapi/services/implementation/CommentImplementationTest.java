@@ -15,8 +15,6 @@ import com.graceman.fashionblogrestapi.model.User;
 import com.graceman.fashionblogrestapi.repository.CommentRepository;
 import com.graceman.fashionblogrestapi.repository.PostRepository;
 import com.graceman.fashionblogrestapi.repository.UserRepository;
-import com.graceman.fashionblogrestapi.response.CommentResponse;
-import com.graceman.fashionblogrestapi.response.SearchCommentResponse;
 import com.graceman.fashionblogrestapi.services.PostService;
 import com.graceman.fashionblogrestapi.services.UserService;
 

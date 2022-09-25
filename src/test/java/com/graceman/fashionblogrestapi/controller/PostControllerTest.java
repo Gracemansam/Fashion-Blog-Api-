@@ -6,7 +6,6 @@ import static org.mockito.Mockito.when;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.graceman.fashionblogrestapi.dto.PostDto;
 import com.graceman.fashionblogrestapi.model.Post;
-import com.graceman.fashionblogrestapi.response.CreatePostResponse;
 import com.graceman.fashionblogrestapi.services.PostService;
 
 import java.time.LocalDateTime;

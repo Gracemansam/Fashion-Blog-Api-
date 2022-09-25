@@ -19,8 +19,6 @@ import com.graceman.fashionblogrestapi.model.Like;
 import com.graceman.fashionblogrestapi.model.Post;
 import com.graceman.fashionblogrestapi.model.User;
 import com.graceman.fashionblogrestapi.repository.UserRepository;
-import com.graceman.fashionblogrestapi.response.LoginResponse;
-import com.graceman.fashionblogrestapi.response.RegisterResponse;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -28,8 +26,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-
-import org.junit.jupiter.api.Disabled;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

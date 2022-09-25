@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.graceman.fashionblogrestapi.dto.UserLoginDto;
 import com.graceman.fashionblogrestapi.dto.UserRegisterDto;
 import com.graceman.fashionblogrestapi.model.User;
-import com.graceman.fashionblogrestapi.response.LoginResponse;
 import com.graceman.fashionblogrestapi.services.UserService;
 
 import java.time.LocalDateTime;

@@ -8,8 +8,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.graceman.fashionblogrestapi.dto.CommentDto;
 import com.graceman.fashionblogrestapi.model.Comment;
 import com.graceman.fashionblogrestapi.model.Post;
-import com.graceman.fashionblogrestapi.response.CommentResponse;
-import com.graceman.fashionblogrestapi.response.SearchCommentResponse;
 import com.graceman.fashionblogrestapi.services.CommentService;
 
 import java.time.LocalDateTime;

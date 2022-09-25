@@ -1,8 +1,9 @@
 package com.graceman.fashionblogrestapi.services;
 
 import com.graceman.fashionblogrestapi.dto.LikeDto;
-import com.graceman.fashionblogrestapi.response.LikeResponse;
+import com.graceman.fashionblogrestapi.response.ApiResponse;
+import org.springframework.http.ResponseEntity;
 
 public interface LikeService {
-    LikeResponse like(int user_id, int post_id, LikeDto likeDto);
+    ResponseEntity<ApiResponse> like(int user_id, int post_id, LikeDto likeDto);
 }

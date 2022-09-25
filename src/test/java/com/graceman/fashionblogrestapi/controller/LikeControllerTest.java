@@ -7,7 +7,6 @@ import static org.mockito.Mockito.when;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.graceman.fashionblogrestapi.dto.LikeDto;
 import com.graceman.fashionblogrestapi.model.Like;
-import com.graceman.fashionblogrestapi.response.LikeResponse;
 import com.graceman.fashionblogrestapi.services.LikeService;
 
 import java.time.LocalDateTime;

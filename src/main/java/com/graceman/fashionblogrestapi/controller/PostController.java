@@ -1,13 +1,9 @@
 package com.graceman.fashionblogrestapi.controller;
 
 import com.graceman.fashionblogrestapi.dto.PostDto;
-import com.graceman.fashionblogrestapi.response.CreatePostResponse;
-import com.graceman.fashionblogrestapi.response.SearchCommentResponse;
-import com.graceman.fashionblogrestapi.response.SearchPostResponse;
+import com.graceman.fashionblogrestapi.response.ApiResponse;
 import com.graceman.fashionblogrestapi.services.PostService;
-import com.graceman.fashionblogrestapi.services.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,14 +21,13 @@ public class PostController {
 
     @PostMapping(value = "/createPost",
             consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CreatePostResponse> create(@RequestBody PostDto postDto) {
-        return new ResponseEntity<>(postService.createPost(postDto),CREATED);
+    public ResponseEntity<ApiResponse> create(@RequestBody PostDto postDto) {
+        return postService.createPost(postDto);
     }
 
     @GetMapping(value = "/searchPost/{keyword}")
-    public ResponseEntity<SearchPostResponse> commentResponse (@PathVariable (value = "keyword") String keyword) {
-        return new ResponseEntity<>(postService.searchPost(keyword),OK);
-
+    public ResponseEntity<ApiResponse> commentResponse (@PathVariable (value = "keyword") String keyword) {
+        return postService.searchPost(keyword);
     }
 
 }

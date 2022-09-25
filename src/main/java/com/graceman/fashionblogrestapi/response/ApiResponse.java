@@ -9,9 +9,9 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ApiResponse {
+public class ApiResponse<T> {
     private String message;
     private Boolean success;
     private LocalDateTime timeStamp;
-    private Object payload;
+    private T payload;
 }

@@ -1,11 +1,11 @@
 package com.graceman.fashionblogrestapi.services;
 
+import com.graceman.fashionblogrestapi.dto.AuthRequest;
+import com.graceman.fashionblogrestapi.dto.GoogleOauth2;
 import com.graceman.fashionblogrestapi.dto.UserLoginDto;
 import com.graceman.fashionblogrestapi.dto.UserRegisterDto;
 import com.graceman.fashionblogrestapi.model.User;
 import com.graceman.fashionblogrestapi.response.ApiResponse;
-import com.graceman.fashionblogrestapi.response.LoginResponse;
-import com.graceman.fashionblogrestapi.response.RegisterResponse;
 import org.springframework.http.ResponseEntity;
 
 public interface UserService {
@@ -16,7 +16,11 @@ public interface UserService {
     //    }
     ResponseEntity<ApiResponse> register(UserRegisterDto userDto);
 
-    LoginResponse login(UserLoginDto loginDto);
+    ResponseEntity<ApiResponse> authenticate(AuthRequest request);
+
+    ResponseEntity<ApiResponse> authenticateOauth2(GoogleOauth2 authPrincipal);
+
+//    ResponseEntity<ApiResponse> login(UserLoginDto loginDto);
 
     User findUserByEmail(String email);
 

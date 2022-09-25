@@ -2,18 +2,18 @@ package com.graceman.fashionblogrestapi.services.implementation;
 
 import com.graceman.fashionblogrestapi.dto.PostDto;
 import com.graceman.fashionblogrestapi.exception.PostNotFoundException;
-import com.graceman.fashionblogrestapi.exception.UserNotFoundException;
 import com.graceman.fashionblogrestapi.model.Post;
 import com.graceman.fashionblogrestapi.model.User;
 import com.graceman.fashionblogrestapi.repository.PostRepository;
 import com.graceman.fashionblogrestapi.repository.UserRepository;
-import com.graceman.fashionblogrestapi.response.CreatePostResponse;
-import com.graceman.fashionblogrestapi.response.SearchPostResponse;
+import com.graceman.fashionblogrestapi.response.ApiResponse;
 import com.graceman.fashionblogrestapi.services.PostService;
 import com.graceman.fashionblogrestapi.services.UserService;
+import com.graceman.fashionblogrestapi.utils.Responder;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.Normalizer;
@@ -29,6 +29,7 @@ public class PostImplementation implements PostService {
     private final PostRepository postRepository;
     private final ModelMapper modelMapper;
     private  final UserRepository userRepository;
+    private final Responder responder;
 
     private UserService userService;
 
@@ -36,7 +37,7 @@ public class PostImplementation implements PostService {
     private static final Pattern WHITESPACE = Pattern.compile("[\\s]");
 
     @Override
-    public CreatePostResponse createPost(PostDto postDto) {
+    public ResponseEntity<ApiResponse> createPost(PostDto postDto) {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
 
         Post post = new Post();
@@ -45,7 +46,7 @@ public class PostImplementation implements PostService {
         post.setUser(user);
         post.setSlug(makeSlug(postDto.getTitle()));
         postRepository.save(post);
-        return new CreatePostResponse("success" , LocalDateTime.now() , post);
+        return responder.success("Post created successfully", post);
     }
    @Override
     public String makeSlug(String input) {
@@ -56,9 +57,9 @@ public class PostImplementation implements PostService {
     }
 
     @Override
-    public SearchPostResponse searchPost(String keyword) {
+    public ResponseEntity<ApiResponse> searchPost(String keyword) {
         List<Post> postList = postRepository.findByTitleContaining(keyword);
-        return new SearchPostResponse("success" , LocalDateTime.now() , postList);
+        return responder.success("Success", postList);
     }
     @Override
     public Post findPostById(int id){

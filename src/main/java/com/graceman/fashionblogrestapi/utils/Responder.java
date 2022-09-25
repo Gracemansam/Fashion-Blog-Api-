@@ -11,17 +11,16 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+
+
 @Service
-public class Responder<Object> {
-    public ResponseEntity<ApiResponse> success(String message, Object payload) {
+public class Responder<T> {
+    public ResponseEntity<ApiResponse> success(String message, T payload) {
         return new ResponseEntity<>(new ApiResponse(message, true, LocalDateTime.now(), payload), HttpStatus.OK);
     }
 
-    public ResponseEntity<ApiResponse> notFound() {
-        return new ResponseEntity<>(new ApiResponse("Request Not Found", true,LocalDateTime.now(), null), HttpStatus.NOT_FOUND);
+    public ResponseEntity<ApiResponse> notFound(String message) {
+        return new ResponseEntity<>(new ApiResponse(message, true,LocalDateTime.now(), null), HttpStatus.NOT_FOUND);
     }
     public ResponseEntity<ApiResponse> alreadyExisted(String message) {
         return new ResponseEntity<>(new ApiResponse(message, true,LocalDateTime.now(), null), HttpStatus.CONFLICT);

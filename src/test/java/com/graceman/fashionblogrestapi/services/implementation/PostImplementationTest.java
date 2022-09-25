@@ -15,8 +15,6 @@ import com.graceman.fashionblogrestapi.model.Post;
 import com.graceman.fashionblogrestapi.model.User;
 import com.graceman.fashionblogrestapi.repository.PostRepository;
 import com.graceman.fashionblogrestapi.repository.UserRepository;
-import com.graceman.fashionblogrestapi.response.CreatePostResponse;
-import com.graceman.fashionblogrestapi.response.SearchPostResponse;
 import com.graceman.fashionblogrestapi.services.UserService;
 
 import java.time.LocalDateTime;
